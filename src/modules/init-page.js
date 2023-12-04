@@ -1,4 +1,5 @@
 
+import createPanel from "./add-todo"
 
 function createButton(id, text){
     const button= document.createElement('button')
@@ -70,27 +71,7 @@ function createMain(id){
     const main = document.createElement('div')
     main.setAttribute('id',id)
 
-    const addTodoPanel= document.createElement('div')
-    addTodoPanel.setAttribute('id','addTodoPanel')
-
-    addTodoPanel.innerHTML=`
-    <form action="#">
-
-    <label for="task-content">Task: </label>
-    <input id="task-content" type="text">
-
-    <label for="task-date">Date: </label>
-    <input type="date" name="" id="task-content">
-
-    <label for="Project-selector">Choose a project:</label>
-    <select name="project-name" id="project-selector">
-        <option value="project-1">Project-1</option>
-        <option value="project-2">Project-2</option>
-        <option value="project-3">Project-3</option>
-    </select>
-    <button id="add-todo">Add todo</button>
-    </form>
-    `
+    let todopanel = createPanel();
 
     const cards=document.createElement('div')
     cards.setAttribute('id','cards')
@@ -99,7 +80,7 @@ function createMain(id){
     cards.appendChild(card)
 
 
-    main.appendChild(addTodoPanel)
+    main.appendChild(todopanel)
     main.appendChild(cards)
 
     return main
